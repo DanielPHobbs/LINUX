@@ -1,0 +1,41 @@
+kubectl version --client
+
+sudo docker ps | grep kube-apiserver
+
+
+Check that the api server is actually running and hasn’t crashed:
+
+sudo docker ps | grep kube-apiserver
+
+But the most likely problem and the one that usually gets me is that you don’t have a .kube directory with the right config in it. Try this:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+sudo kubectl config view
+
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
+https://www.tutorialspoint.com/kubernetes/kubernetes_kubectl_commands.htm
+
+https://www.bluematador.com/learn/kubectl-cheatsheet
+
+kubectl get nodes
+kubectl get ns
+kubectl get pods -n kube-system
+
+
+kubectl cluster-info
+
+
+kubectl get deployment
+
+
+kubectl get events
+
+
+https://medium.com/faun/kubectl-commands-cheatsheet-43ce8f13adfb
